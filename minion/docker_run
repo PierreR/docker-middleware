@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo docker run -i -t -h minion -name minion -link puppetmaster:puppet pra/minion /bin/bash

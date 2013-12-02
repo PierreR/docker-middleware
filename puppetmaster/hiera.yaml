@@ -1,0 +1,14 @@
+---
+:backends:
+  - yaml
+:logger: console
+:hierarchy: 
+   - '%{::hostgroup}/%{::hostname}'
+   - '%{::hostgroup}/common'
+   - '%{::hostname}'
+   - 'common'
+   - common
+:yaml:
+   :datadir: hieradata
+:puppet:
+   :datasource: data
