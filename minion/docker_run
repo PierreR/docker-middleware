@@ -1,3 +1,3 @@
 #!/bin/sh
-sudo docker run -d -h minion -p 22 -name minion -link saltmaster:salt pra/minion
-#sudo docker run -i -t -h minion -name minion -link saltmaster:salt pra/minion /bin/bash
+sudo docker run -d -p 22 -h minion -name minion -link saltmaster:salt -link puppetmaster:puppet pra/minion
+#sudo docker run -i -t -p 22 -h minion -name minion -link saltmaster:salt -link puppetmaster:puppet pra/minion /bin/bash

@@ -12,7 +12,6 @@ RUN yum -y install salt-master
 #RUN chkconfig ntpd on
 # create dir for middleware env
 
-#VOLUME ["/etc/puppet/environments/middleware_local"]
 #RUN chmod +x /usr/local/bin/run
 
 RUN chown root:root /root/.ssh/authorized_keys

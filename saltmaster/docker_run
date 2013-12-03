@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo docker run -d -p 22 -h salt -name saltmaster pra/saltmaster /usr/sbin/sshd -D
+sudo docker run -d -p 22 -h salt -name saltmaster pra/saltmaster

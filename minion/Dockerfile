@@ -1,13 +1,11 @@
 FROM centos:6.4
 
 ADD sshd_config /etc/ssh/sshd_config
-#ADD ntp.conf /etc/ntp.conf
 
 RUN rpm -Uvh http://release.irisnet.be/cirb-release6.rpm
 RUN yum -y install gcc bzip2 make kernel-devel wget sudo openssh-clients openssh-server ncurses-term
 # RUN yum -y install perl crontabs vim-enhanced ntp
 RUN yum -y install puppet salt-minion
-#RUN chkconfig ntpd on
 
 # SSH
 ADD sshkey.pub /root/.ssh/authorized_keys
