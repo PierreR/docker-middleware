@@ -2,6 +2,8 @@ FROM centos:6.4
 
 ADD sshd_config /etc/ssh/sshd_config
 ADD sshkey.pub /root/.ssh/authorized_keys
+ADD minion.pub /etc/salt/pki/master/minions/minion.pub
+
 #ADD ntp.conf /etc/ntp.conf
 
 RUN rpm -Uvh http://release.irisnet.be/cirb-release6.rpm

@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "master: $SALT_PORT_4505_TCP_ADDR" > /etc/salt/minion.d/salt.conf
+service sshd start
+/usr/bin/salt-minion -l debug
+
