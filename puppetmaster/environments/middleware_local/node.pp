@@ -1,0 +1,3 @@
+node minion {
+	notice ("hello")
+}

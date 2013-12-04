@@ -9,12 +9,16 @@ RUN yum -y install puppet puppet-server
 # SSH
 ADD sshkey.pub /root/.ssh/authorized_keys
 RUN chown root:root /root/.ssh/authorized_keys
+RUN ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_key
+RUN ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_rsa_key 
+RUN ssh-keygen -b 1024 -t dsa -f /etc/ssh/ssh_host_dsa_key
 
 # PUPPET
 ADD puppet.conf /etc/puppet/puppet.conf
 # create dir for middleware env
 RUN mkdir -p /etc/puppet/environments/middleware_local
 #VOLUME ["/etc/puppet/environments/middleware_local"]
+VOLUME ["/home/vagrant/projects/jules/docker/puppetmaster/environments/middleware_local"]
 
 # BOOT
 ADD run /usr/local/bin/run

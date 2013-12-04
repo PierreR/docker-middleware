@@ -18,7 +18,7 @@ RUN ssh-keygen -b 1024 -t dsa -f /etc/ssh/ssh_host_dsa_key
 ADD puppet.conf /etc/puppet/puppet.conf
 ADD run_puppet.sh /usr/local/bin/run_puppet.sh
 # create dir for middleware env
-RUN mkdir -p /etc/puppet/environments/middleware_local
+#RUN mkdir -p /etc/puppet/environments/middleware_local
 #VOLUME ["/etc/puppet/environments/middleware_local"]
 RUN chmod +x /usr/local/bin/run_puppet.sh
 
