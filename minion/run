@@ -1,11 +1,11 @@
 #!/bin/sh
 echo "master: $SALT_PORT_4505_TCP_ADDR" > /etc/salt/minion.d/salt.conf
 
-service sshd start
-
 cat << EOF > /usr/local/bin/run_puppet.sh
 #!/bin/sh
 puppet agent --server $PUPPET_PORT_8140_TCP_ADDR --environment middleware_local --no-daemonize -d
 EOF
 
-/usr/bin/salt-minion -l debug
+service salt-minion start
+
+/usr/sbin/sshd -D

@@ -10,9 +10,9 @@ RUN yum -y install puppet salt-minion
 # SSH
 ADD sshkey.pub /root/.ssh/authorized_keys
 RUN chown root:root /root/.ssh/authorized_keys
-#RUN ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_key
-#RUN ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_rsa_key 
-#RUN ssh-keygen -b 1024 -t dsa -f /etc/ssh/ssh_host_dsa_key
+RUN ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_key
+RUN ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_rsa_key 
+RUN ssh-keygen -b 1024 -t dsa -f /etc/ssh/ssh_host_dsa_key
 
 # PUPPET
 ADD puppet.conf /etc/puppet/puppet.conf
@@ -21,11 +21,6 @@ ADD run_puppet.sh /usr/local/bin/run_puppet.sh
 RUN mkdir -p /etc/puppet/environments/middleware_local
 #VOLUME ["/etc/puppet/environments/middleware_local"]
 RUN chmod +x /usr/local/bin/run_puppet.sh
-
-# SALT
-ADD minion.pem /etc/salt/pki/minion/minion.pem
-ADD minion.pub /etc/salt/pki/minion/minion.pub
-RUN mkdir /etc/salt/minion.d
 
 # BOOT
 ADD run /usr/local/bin/run
