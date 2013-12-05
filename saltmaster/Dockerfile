@@ -9,6 +9,9 @@ RUN yum -y install salt-master
 # SSH
 ADD sshkey.pub /root/.ssh/authorized_keys
 RUN chown root:root /root/.ssh/authorized_keys
+RUN ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_key
+RUN ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_rsa_key 
+RUN ssh-keygen -b 1024 -t dsa -f /etc/ssh/ssh_host_dsa_key
 
 # SALT MASTER
 RUN mkdir /etc/salt/master.d

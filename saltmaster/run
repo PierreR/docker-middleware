@@ -1,3 +1,3 @@
 #!/bin/sh
-service sshd start
-/usr/bin/salt-master -l debug
+service salt-master start
+/usr/sbin/sshd -D

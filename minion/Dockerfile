@@ -22,6 +22,18 @@ ADD run_puppet.sh /usr/local/bin/run_puppet.sh
 #VOLUME ["/etc/puppet/environments/middleware_local"]
 RUN chmod +x /usr/local/bin/run_puppet.sh
 
+# DNS MASK
+RUN yum -y install bind-utils dnsmasq
+
+RUN echo 'no-resolv' >> /etc/dnsmasq.conf
+RUN echo 'no-poll' >> /etc/dnsmasq.conf
+RUN echo 'interface=lo' >> /etc/dnsmasq.conf
+RUN echo 'no-dhcp-interface=lo' >> /etc/dnsmasq.conf
+RUN echo 'conf-dir=/etc/dnsmasq.d' >> /etc/dnsmasq.conf
+
+# SALT
+#RUN mkdir /etc/salt/minion.d
+
 # BOOT
 ADD run /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run

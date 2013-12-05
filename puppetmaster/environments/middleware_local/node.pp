@@ -1,3 +1,0 @@
-node minion {
-	notice ("hello")
-}
