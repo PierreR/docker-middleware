@@ -1,12 +1,13 @@
 #!/bin/sh
+
 echo "address=/puppet/$PUPPET_PORT_8140_TCP_ADDR" >> /etc/dnsmasq.d/0hosts
 echo "address=/salt/$SALT_PORT_4505_TCP_ADDR" >> /etc/dnsmasq.d/0hosts
-dnsmasq
+
 cat > /usr/local/bin/run_puppet.sh << EOF
 #!/bin/sh
 puppet agent --environment middleware_local --test
 EOF
 
-service salt-minion start
+chmod +x /usr/local/bin/run_puppet.sh
 
-/usr/sbin/sshd -D
+/usr/bin/supervisord -n 
