@@ -1,3 +1,0 @@
-#!/bin/sh
-service salt-master start
-/usr/sbin/sshd -D
