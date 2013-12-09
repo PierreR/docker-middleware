@@ -3,7 +3,7 @@ FROM centos:6.4
 ADD sshd_config /etc/ssh/sshd_config
 
 RUN rpm -Uvh http://release.irisnet.be/cirb-release6.rpm
-RUN yum -y install gcc bzip2 make kernel-devel wget sudo openssh-clients openssh-server ncurses-term
+RUN yum -y install gcc bzip2 make kernel-devel wget sudo openssh-clients openssh-server ncurses-term passwd
 RUN yum -y install supervisor python-pip
 
 # ssh
