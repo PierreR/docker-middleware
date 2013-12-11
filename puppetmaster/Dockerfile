@@ -1,6 +1,6 @@
 FROM cirb/pra
 
-RUN yum -y install puppet puppet-server
+RUN yum -y install puppet-server
 
 # PUPPET
 ADD puppet.conf /etc/puppet/puppet.conf

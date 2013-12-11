@@ -1,2 +1,5 @@
 #!/bin/sh
+
+echo "address=/salt/$SALT_PORT_4505_TCP_ADDR" >> /etc/dnsmasq.d/0hosts
+
 /usr/bin/supervisord -n
