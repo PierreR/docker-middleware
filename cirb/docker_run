@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo docker run -d -p 22 -name pra cirb/pra /usr/sbin/sshd -D
