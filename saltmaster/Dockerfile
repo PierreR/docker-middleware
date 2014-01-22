@@ -22,6 +22,7 @@ RUN yum -y remove ipython
 RUN pip install tornado ipython
 RUN ipython create profile salt
 ADD ipython_notebook_config.py /root/.ipython/profile_salt/ipython_notebook_config.py
+ADD ipython-salt.pem /etc/ssl/certs/salt.pem
 # SUPERVISOR
 ADD supervisor-services.ini /etc/supervisord.d/services.ini
 
