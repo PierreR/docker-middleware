@@ -1,3 +1,6 @@
 #!/bin/sh
-sudo docker run -d -p 22 -p 4505 -p 443:443 -p 8888:8888 -v /home/vagrant/projects/jules/docker/saltmaster/srv:/srv:rw -h salt -name salt pra/saltmaster /usr/bin/supervisord -n -c /etc/supervisord.conf
+sudo docker run -d -p 22 -p 4505 -p 443:443 -p 8888:8888 \
+	-v /home/vagrant/projects/jules/salt:/home/vagrant/salt:r \
+	-v /home/vagrant/projects/jules/docker/saltmaster/srv:/srv:rw \
+	-h salt -name salt pra/saltmaster /usr/bin/supervisord -n -c /etc/supervisord.conf
 #sudo docker run -i -t -p 22 -p 8080 -h salt -name salt pra/saltmaster /bin/bash
