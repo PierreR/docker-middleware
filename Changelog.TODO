@@ -1,6 +1,7 @@
 Docker
    Salt Master
-     ✔ Change config to point to github source @done (14-01-29 17:04)
+     ✔ Change Salt install to point to github source @done (14-01-29 17:04)
+     ☐ Change Halite install to point to github source
      ☐ Install and configure IPython
    Host
      ☐ Connect to the Salt Master through Lightable using IPython

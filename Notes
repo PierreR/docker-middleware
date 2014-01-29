@@ -1,0 +1,9 @@
+SELF-SIGNED CERTIFICATES
+========================
+
+* openssl genrsa -des3 -out jules-secure.key 4096
+* openssl req -new -key jules-secure.key -out jules.csr
+* openssl rsa -in jules-secure.key -out jules.key
+* chmod 400 jules.key
+
+* openssl x509 -req -days 365 -in jules.csr -signkey jules.key -out jules.crt
